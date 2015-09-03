@@ -1,0 +1,21 @@
+---
+  - name: install needed packages
+    yum: name={{item}} state=installed
+    with_items:
+      - rubygems
+
+  - name: Copy Gemfile
+    action: template src=Gemfile dest=/home/{{user}}/Gemfile owner={{user}}
+
+  - name: Copy gem install script
+    action: template src=install.sh dest=/home/{{user}}/install.sh mode="u=wrx" owner={{user}}
+
+  - stat: path=/etc/profile.d/rvm.sh
+    register: rvm_folder
+
+  - name: install rvm
+    shell: "curl -sSL https://get.rvm.io | bash"
+    when: rvm_folder.stat.isdir is not defined
+
+  - name: install bundler
+    gem: name=bundler

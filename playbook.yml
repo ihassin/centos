@@ -1,0 +1,9 @@
+---
+- hosts: devops
+
+  roles:
+    - common
+    - secure
+    - joshualund.ruby-2_1
+    - bundler
+

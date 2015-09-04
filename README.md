@@ -12,16 +12,30 @@ The roles are
 git clone git@github.com:ihassin/centos.git
 ```
 
-# Provisioning the VMs
+or
 
 ```
-vagrant up|provision
+git clone https://github.com/ihassin/centos.git
+```
+
+# Provisioning the VMs
+
+Vagrantfile assumes a base Centos box named 'centos'. To import that box, issue the following command:
+
+```
+vagrant box add centos https://github.com/2creatives/vagrant-centos/releases/download/v6.4.2/centos64-x86_64-20140116.box
 ```
 
 If you want to change the VM's IP address, or networking in general, please edit Vagrantfile to suite your needs.
 
 Once you have done that, you can ```ssh deploy@33.33.33.44``` with the password found in common/vars/main.yml
 If you want to access the VM using your own ssh key, insert your public key in common/templates/ssh_keys.pub
+
+You can then bring up the box for configuring by issuing the following command:
+
+```
+vagrant up|provision
+```
 
 # Running Ansible standalone
 

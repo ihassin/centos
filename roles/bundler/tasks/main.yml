@@ -19,3 +19,15 @@
 
   - name: install bundler
     gem: name=bundler
+
+  - name: get vagrant
+    shell: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
+
+  - name: install vagrant
+    shell: sudo dpkg -i vagrant_1.7.4_x86_64.deb
+
+  - name: remove vagrant distro file
+    file: name=/home/{{user}}/vagrant_1.7.4_x86_64.deb state=absent
+
+  - name: Set up .bashrc to display current git branch
+    action: template src=bashrc dest=/home/{{user}}/.bashrc mode="u=wr" owner={{user}}

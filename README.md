@@ -1,10 +1,10 @@
 # VM provisioning
 
 The roles are
-- common                    basic centos
-- secure                    secured-isg centos
-- joshualund.ruby-2_1       ruby 2
-- bundler                   bundler, rubygems, Gemfile etc
+- common: basic centos
+- secure: secured-ish centos
+- ruby 2
+- bundler, rubygems, Gemfile, cucumber, vagrant
 
 # git
 

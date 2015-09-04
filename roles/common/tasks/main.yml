@@ -277,6 +277,8 @@
       - libxml2-devel
       - libxslt
       - libxslt-devel
+      - wget
+      - dpkg
 
   - name: Create the deploy user
     user: name={{user}} comment="deploy user" generate_ssh_key=yes ssh_key_bits=2048 state=present password={{password}} shell=/bin/bash
@@ -292,3 +294,7 @@
 
   - name: Set vi preferences
     action: template src=vimrc dest=/home/{{user}}/.vimrc owner={{user}}
+
+  - name: Clear dpkg
+    shell: dpkg --clear-avail
+    sudo: true

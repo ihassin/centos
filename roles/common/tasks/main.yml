@@ -27,6 +27,8 @@
       - libxslt-devel
       - wget
       - dpkg
+      - java-1.7.0-openjdk
+      - java-1.7.0-openjdk-devel
 
   - name: Create the deploy user
     user: name={{user}} comment="deploy user" generate_ssh_key=yes ssh_key_bits=2048 state=present password={{password}} shell=/bin/bash

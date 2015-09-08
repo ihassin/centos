@@ -70,6 +70,12 @@ From then on, you can start running cukes from that user on the VM.
 # Example ServerSpec
 
 Please see spec/devops/*_spec.rb for ServerSpec files.
+Run ServerSpec by issuing the following command:
+
+```
+rake
+```
+
 
 # Contributing
 

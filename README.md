@@ -22,7 +22,7 @@ git clone https://github.com/ihassin/centos.git
 
 Please install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
 Please install vagrnt from [here](https://docs.vagrantup.com/v2/installation).
-
+Please install Ansible from [here](http://docs.ansible.com/ansible/intro_installation.html#getting-ansible)
 
 ## Provisioning the VMs
 
@@ -66,6 +66,10 @@ install.sh
 It will run ```bundle --binstubs``` and call ```bundle exec cucumber --init```.
 
 From then on, you can start running cukes from that user on the VM.
+
+# Example ServerSpec
+
+Please see spec/devops/sample_spec.rb for an example test for Apache.
 
 # Contributing
 

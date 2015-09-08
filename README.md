@@ -69,7 +69,7 @@ From then on, you can start running cukes from that user on the VM.
 
 # Example ServerSpec
 
-Please see spec/devops/sample_spec.rb for an example test for Apache.
+Please see spec/devops/*_spec.rb for ServerSpec files.
 
 # Contributing
 

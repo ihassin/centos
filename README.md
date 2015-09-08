@@ -18,7 +18,13 @@ or
 git clone https://github.com/ihassin/centos.git
 ```
 
-# Provisioning the VMs
+# Prerequisites
+
+Please install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
+Please install vagrnt from [here](https://docs.vagrantup.com/v2/installation).
+
+
+## Provisioning the VMs
 
 Vagrantfile assumes a base Centos box named 'centos'. To import that box, issue the following command:
 

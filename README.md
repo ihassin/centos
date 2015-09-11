@@ -76,7 +76,6 @@ Run ServerSpec by issuing the following command:
 rake
 ```
 
-
 # Contributing
 
 1. Fork it (https://github.com/ihassin/centos/fork)
@@ -88,4 +87,3 @@ rake
 # License
 
 MIT
-

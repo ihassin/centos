@@ -20,17 +20,25 @@ git clone https://github.com/ihassin/centos.git
 
 # Prerequisites
 
-Please install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
-Please install vagrnt from [here](https://docs.vagrantup.com/v2/installation).
-Please install Ansible from [here](http://docs.ansible.com/ansible/intro_installation.html#getting-ansible)
+* Please install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
+* Please install Vagrant from [here](https://docs.vagrantup.com/v2/installation).
+* Please install Ansible from [here](http://docs.ansible.com/ansible/intro_installation.html#getting-ansible).
 
 ## Provisioning the VMs
 
 Vagrantfile assumes a base Centos box named 'centos'. To import that box, issue the following command:
 
 ```
-vagrant box add centos https://github.com/2creatives/vagrant-centos/releases/download/v6.4.2/centos64-x86_64-20140116.box
+vagrant box add centos /path/to/box/file
 ```
+
+Initialize Vagrant:
+
+```
+vagrant init
+```
+
+and change the box name to match the box file you chose.
 
 If you want to change the VM's IP address, or networking in general, please edit Vagrantfile to suite your needs.
 

@@ -7,4 +7,5 @@ gem 'cucumber'
 gem 'selenium-webdriver'
 gem 'capybara'
 gem 'serverspec'
+gem 'highline'
 

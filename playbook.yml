@@ -5,5 +5,5 @@
     - common
     - secure
     - joshualund.ruby-2_1
-    - bundler
+    - serverspec
 

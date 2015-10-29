@@ -1,7 +1,7 @@
 # VM provisioning
 
 The roles are
-- common: basic centos
+- common: basic centos rpm
 - secure: secured-ish centos
 - ruby 2
 - bundler, rubygems, Gemfile, cucumber, vagrant
@@ -82,6 +82,28 @@ Run ServerSpec by issuing the following command:
 
 ```
 rake
+```
+
+# RPM
+
+## Building the RPM
+
+```
+cd ~
+rpmbuild -ba SPECS/demo-1.0.spec
+```
+## Installing the RPM
+
+```
+cd ~/rpmbuild
+sudo rpm -Uvh RPMS/x86_64/ix-1.0-1.x86_64.rpm
+```
+
+## Querying the RPM
+
+```
+cd ~/rpmbuild
+rpm -qip RPMS/x86_64/ix-1.0-1.x86_64.rpm 
 ```
 
 # Contributing

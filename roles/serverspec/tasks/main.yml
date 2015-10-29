@@ -5,10 +5,10 @@
       - rubygems
 
   - name: Copy Gemfile
-    action: template src=Gemfile dest=/home/{{user}}/Gemfile owner={{user}}
+    copy: src=Gemfile dest=/home/{{user}}/Gemfile owner={{user}} group={{user}}
 
   - name: Copy gem install script
-    action: template src=install.sh dest=/home/{{user}}/install.sh mode="u=wrx" owner={{user}}
+    copy: src=install.sh dest=/home/{{user}}/install.sh mode="u=wrx" owner={{user}} group={{user}}
 
   - stat: path=/etc/profile.d/rvm.sh
     register: rvm_folder
@@ -20,14 +20,23 @@
   - name: install bundler
     gem: name=bundler
 
-  - name: get vagrant
-    shell: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
+  - name: See if Vagrant is installed
+    shell: "dpkg -l | grep vagrant"
+    ignore_errors: true
+    register: vagrant_installed
 
-  - name: install vagrant
-    shell: sudo dpkg -i vagrant_1.7.4_x86_64.deb
+  - name: See if we have Vagrant
+    stat: path=/home/{{user}}/vagrant_1.7.4_x86_64.deb
+    register: vagrant_downloaded
+    when: vagrant_installed.rc == 1
 
-  - name: remove vagrant distro file
-    file: name=/home/{{user}}/vagrant_1.7.4_x86_64.deb state=absent
+  - name: Get vagrant if needed
+    get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb dest=/home/{{user}} mode=0440
+    when: vagrant_installed.rc == 1 and not vagrant_downloaded.stat.exists
+
+  - name: Install vagrant if needed
+    shell: sudo dpkg -i /home/{{user}}/vagrant_1.7.4_x86_64.deb
+    when: vagrant_installed.rc == 1
 
   - name: Set up .bashrc to display current git branch
-    action: template src=bashrc dest=/home/{{user}}/.bashrc mode="u=wr" owner={{user}}
+    copy: src=bashrc dest=/home/{{user}}/.bashrc mode="u=wr" owner={{user}} group={{user}}

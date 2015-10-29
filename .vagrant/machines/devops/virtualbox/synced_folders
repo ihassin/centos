@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/ThoughtWorks/Documents/projects/centos","disabled":false}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/ThoughtWorks/Documents/projects/infra/centos","disabled":false}}}

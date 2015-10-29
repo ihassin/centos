@@ -1,0 +1,31 @@
+---
+  - name: install needed packages
+    yum: name={{item}} state=installed
+    with_items:
+      - rpm-build
+      - redhat-rpm-config
+      - make
+      - gcc
+
+  - name: Set up RPM dev structure
+    file: path=/home/{{user}}/rpmbuild/{{item}} state=directory mode=0755 owner={{user}} group={{user}}
+    with_items:
+      - BUILD
+      - RPMS
+      - RPMS/ATHLON
+      - RPMS/I386
+      - RPMS/I486
+      - RPMS/I586
+      - RPMS/I686
+      - RPMS/NOARCH
+      - SOURCES
+      - SPECS
+      - SRPMS
+
+  - name: Create the spec file for the RPM
+    copy: src={{item}} dest=/home/{{user}}/rpmbuild/{{item}} mode=0755 owner={{user}} group={{user}}
+    with_items:
+      - "SPECS/ix-1.0.spec"
+
+  - name: Create tar file for the RPM
+    copy: src=ix-1.0.tar.gz dest=/home/{{user}}/rpmbuild/SOURCES mode=0755 owner={{user}} group={{user}}

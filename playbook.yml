@@ -2,9 +2,9 @@
 - hosts: devops
 
   roles:
-#    - common
-#    - secure
-#    - joshualund.ruby-2_1
-#    - serverspec
+    - common
+    - secure
+    - joshualund.ruby-2_1
+    - serverspec
     - rpm
 

@@ -89,8 +89,8 @@ rake
 ## Building the RPM
 
 ```
-cd ~
-rpmbuild -ba SPECS/demo-1.0.spec
+cd ~/rpmbuild
+sudo rpmbuild -ba SPECS/ix-1.0.spec
 ```
 ## Installing the RPM
 
@@ -103,7 +103,7 @@ sudo rpm -Uvh RPMS/x86_64/ix-1.0-1.x86_64.rpm
 
 ```
 cd ~/rpmbuild
-rpm -qip RPMS/x86_64/ix-1.0-1.x86_64.rpm 
+sudo rpm -qip RPMS/x86_64/ix-1.0-1.x86_64.rpm 
 ```
 
 # Contributing
